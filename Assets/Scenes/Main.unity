@@ -9655,6 +9655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1987982555}
+  locomotionBlendSpeed: 4
 --- !u!1001 &2020372172
 PrefabInstance:
   m_ObjectHideFlags: 0

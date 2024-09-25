@@ -6,7 +6,16 @@ public class PlayerState : MonoBehaviour
 {
     
     [field: SerializeField] public PlayerMovementState CurrentPlayerMovementState { get; private set; } = PlayerMovementState.Idle;
-   public enum PlayerMovementState
+   
+   
+   public void SetPlayerMovementState(PlayerMovementState playerMovementState)
+   {
+        CurrentPlayerMovementState = playerMovementState;
+   }
+
+}
+
+public enum PlayerMovementState
    {
         Idle = 0,
         Walk = 1,
@@ -17,5 +26,3 @@ public class PlayerState : MonoBehaviour
         Attack = 6,
 
    }
-
-}

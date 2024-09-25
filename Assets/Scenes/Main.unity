@@ -9163,7 +9163,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1947608125300794163, guid: 8a7a68ecd3d06c04581592c0f5ca30dd, type: 3}
       propertyPath: m_Name
-      value: ThirdPersonControllerGingerbread
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4643510318112879229, guid: 8a7a68ecd3d06c04581592c0f5ca30dd, type: 3}
       propertyPath: m_LocalPosition.x

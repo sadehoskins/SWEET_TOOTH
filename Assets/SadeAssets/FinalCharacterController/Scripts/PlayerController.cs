@@ -79,11 +79,11 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded && _characterController.velocity.y >= 0f)
         {
             _playerState.SetPlayerMovementState(PlayerMovementState.Jump);
-        }
+        }/*
         else if (!isGrounded && _characterController.velocity.y < 0f)
         {
             _playerState.SetPlayerMovementState(PlayerMovementState.Fall);  //overrides lateral state
-        }
+        }*/
 
     }
 

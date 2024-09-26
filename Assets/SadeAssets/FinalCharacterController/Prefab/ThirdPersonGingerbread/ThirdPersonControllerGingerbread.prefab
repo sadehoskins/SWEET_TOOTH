@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 902560391260921148}
   - component: {fileID: 2146078241911817812}
   - component: {fileID: 6748690985714942982}
+  - component: {fileID: 205178219197792334}
+  - component: {fileID: 7541033259187084440}
+  - component: {fileID: 5213234604199585013}
   m_Layer: 0
   m_Name: ThirdPersonControllerGingerbread
   m_TagString: Untagged
@@ -50,9 +53,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController: {fileID: 6748690985714942982}
   _playerCamera: {fileID: 4244555822917193737}
-  runAcceleration: 50
+  runAcceleration: 35
   runSpeed: 4
-  drag: 30
+  sprintAcceleration: 50
+  sprintSpeed: 7
+  drag: 15
+  gravity: 25
+  jumpSpeed: 1
+  movingThreshold: 0.01
   lookSenseH: 0.1
   lookSenseV: 0.1
   lookLimitV: 75
@@ -68,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe46037c563ba54a929791ef84a6cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdToSprint: 1
 --- !u!143 &6748690985714942982
 CharacterController:
   m_ObjectHideFlags: 0
@@ -91,9 +100,57 @@ CharacterController:
   m_Radius: 0.35
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_SkinWidth: 0.0001
+  m_MinMoveDistance: 0.01
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &205178219197792334
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947608125300794163}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 41f081d5c6d286c47a33bed3f84de79a, type: 3}
+  m_Controller: {fileID: 9100000, guid: ff14e73b66712fa4bb79546d92da4c03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7541033259187084440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947608125300794163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf7c7f6984f7f3439b0656962d35222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 205178219197792334}
+  locomotionBlendSpeed: 4
+--- !u!114 &5213234604199585013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947608125300794163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e81440e1021504499370eacc72ccda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentPlayerMovementState>k__BackingField: 0
 --- !u!1 &2905440252971918431
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +474,7 @@ Transform:
   m_GameObject: {fileID: 7044853676487327291}
   serializedVersion: 2
   m_LocalRotation: {x: -0.21200176, y: -0, z: -0, w: 0.9772693}
-  m_LocalPosition: {x: 0, y: 1.82, z: -3.17}
+  m_LocalPosition: {x: 0, y: 2.46, z: -3.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -536,7 +593,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4985691113074979274, guid: 62dcba975a0bdfe47bef48ea43049412, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

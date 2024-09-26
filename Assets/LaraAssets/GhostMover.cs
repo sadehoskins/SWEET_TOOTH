@@ -13,6 +13,8 @@ public class GhostMover : MonoBehaviour
     [SerializeField] private float obstacleAvoidanceForce = 2f;
     [SerializeField] private float respawnTime = 3f;
     [SerializeField] private float killDistance = 1f; // Distance at which the ghost can "kill" the player
+    [SerializeField] public float damage = 10;
+
 
     private Renderer[] renderers;
     private Collider ghostCollider;
@@ -68,7 +70,6 @@ public class GhostMover : MonoBehaviour
 
     Vector3 ObstacleAvoidance()
     {
-        // ... (keep the existing ObstacleAvoidance code)
         return Vector3.zero; // Placeholder return
     }
 
@@ -77,10 +78,18 @@ public class GhostMover : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= killDistance)
         {
-            Debug.Log($"Ghost {gameObject.name} is within kill distance ({distanceToPlayer}). Initiating death.");
+            Debug.Log($"Ghost {gameObject.name} is within kill distance ({distanceToPlayer}). Initiating death and applying damage.");
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+                Debug.Log($"Applied {damage} damage to player. Current health: {playerHealth.GetCurrentHealth()}");
+            }
+            else
+            {
+                Debug.LogError("PlayerHealth component not found on the player!");
+            }
             DieAndRespawn();
-            // Placeholder: Player takes damage
-            // PlayerHealth.TakeDamage(10);
         }
     }
 
@@ -89,19 +98,7 @@ public class GhostMover : MonoBehaviour
         Debug.Log($"Trigger entered by {other.gameObject.name}. Other layer: {other.gameObject.layer}, Player layer: {playerLayer}");
         if (((1 << other.gameObject.layer) & playerLayer) != 0 && !isDead)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            Debug.Log($"Player collision detected for ghost {gameObject.name}. Distance to player: {distanceToPlayer}");
-            if (distanceToPlayer <= killDistance)
-            {
-                Debug.Log($"Ghost {gameObject.name} is within kill distance. Initiating death.");
-                DieAndRespawn();
-                // Placeholder: Player takes damage
-                // PlayerHealth.TakeDamage(10);
-            }
-            else
-            {
-                Debug.Log($"Ghost {gameObject.name} is too far from player to die. Distance: {distanceToPlayer}, Required: {killDistance}");
-            }
+            CheckPlayerDistance();
         }
     }
 

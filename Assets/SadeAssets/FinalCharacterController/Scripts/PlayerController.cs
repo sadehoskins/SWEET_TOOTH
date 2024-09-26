@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEditor;
+using UnityEditor.Callbacks;
+
 
 //using System.Numerics;
 using UnityEngine;
@@ -25,6 +28,16 @@ public class PlayerController : MonoBehaviour
     public float gravity = 25f;
     public float jumpSpeed = 1.0f;
     public float movingThreshold = 0.01f;
+
+    public Weapon weapon;
+
+    //Weapon test
+
+    public float moveSpeed = 5f;
+    public Rigidbody rb;
+    Vector2 moveDirection;
+    Vector2 mousePosition;
+    //weapon test
 
 
     [Header("Camera Settings")]
@@ -61,7 +74,33 @@ public class PlayerController : MonoBehaviour
         UpdateMovementState();
         HandleVerticalMovement();
         HandleLateralMovement();
+
+
+        //Weapon Test
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        //Weapon Test
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            weapon.Fire();
+  
+        }
+
+        // Weapon Test
+        moveDirection = new Vector2(moveX, moveY).normalized;
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Weapon Test
     }          
+
+    /*weapon Test
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        Vector2 aimDirection = mousePositdion - _verticalVelocity;
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+    }
+    Weapon Test*/
 
     private void UpdateMovementState()
     {

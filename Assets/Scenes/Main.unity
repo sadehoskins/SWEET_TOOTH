@@ -13256,6 +13256,8 @@ GameObject:
   - component: {fileID: 486525613}
   - component: {fileID: 486525615}
   - component: {fileID: 486525616}
+  - component: {fileID: 486525617}
+  - component: {fileID: 486525618}
   m_Layer: 0
   m_Name: GhostSpawner
   m_TagString: Untagged
@@ -13377,6 +13379,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 3
+--- !u!114 &486525617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486525612}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d561d84c316f548bdc8ef579a5e040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 5446477390807014373, guid: b713585f24f940f4eadb10319818ef40, type: 3}
+  ghostScale: {x: 5, y: 5, z: 5}
+  spawnPoints:
+  - position: {x: 85, y: 0, z: 170}
+  - position: {x: 97, y: 0, z: 100}
+  - position: {x: 120, y: 0, z: 120}
+  moveSpeed: 2
+  player: {fileID: 2128697051}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  ghostLayer: 8
+--- !u!114 &486525618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486525612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d561d84c316f548bdc8ef579a5e040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 8406845055882037674, guid: 36621476210b2c649b8aeea96b7c2587, type: 3}
+  ghostScale: {x: 5, y: 5, z: 5}
+  spawnPoints:
+  - position: {x: 150, y: 0, z: 120}
+  - position: {x: 80, y: 0, z: 85}
+  moveSpeed: 2
+  player: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  ghostLayer: 8
 --- !u!1 &493581841
 GameObject:
   m_ObjectHideFlags: 0

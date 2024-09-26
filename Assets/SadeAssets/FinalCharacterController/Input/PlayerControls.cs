@@ -222,6 +222,34 @@ namespace SadeAssets.FinalCharacterController
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerAction"",
+            ""id"": ""244f6631-c8b7-4545-9fa1-3576ba79fe32"",
+            ""actions"": [
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f4b1b1f-7506-417c-803e-f8bd97dd7e19"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3c82b3c6-b3c6-40bb-a281-58319bc15b8d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -232,6 +260,9 @@ namespace SadeAssets.FinalCharacterController
             m_PlayerLocomotionMap_Look = m_PlayerLocomotionMap.FindAction("Look", throwIfNotFound: true);
             m_PlayerLocomotionMap_ToggleSprint = m_PlayerLocomotionMap.FindAction("ToggleSprint", throwIfNotFound: true);
             m_PlayerLocomotionMap_Jump = m_PlayerLocomotionMap.FindAction("Jump", throwIfNotFound: true);
+            // PlayerAction
+            m_PlayerAction = asset.FindActionMap("PlayerAction", throwIfNotFound: true);
+            m_PlayerAction_Attack = m_PlayerAction.FindAction("Attack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -359,12 +390,62 @@ namespace SadeAssets.FinalCharacterController
             }
         }
         public PlayerLocomotionMapActions @PlayerLocomotionMap => new PlayerLocomotionMapActions(this);
+
+        // PlayerAction
+        private readonly InputActionMap m_PlayerAction;
+        private List<IPlayerActionActions> m_PlayerActionActionsCallbackInterfaces = new List<IPlayerActionActions>();
+        private readonly InputAction m_PlayerAction_Attack;
+        public struct PlayerActionActions
+        {
+            private @PlayerControls m_Wrapper;
+            public PlayerActionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Attack => m_Wrapper.m_PlayerAction_Attack;
+            public InputActionMap Get() { return m_Wrapper.m_PlayerAction; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(PlayerActionActions set) { return set.Get(); }
+            public void AddCallbacks(IPlayerActionActions instance)
+            {
+                if (instance == null || m_Wrapper.m_PlayerActionActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_PlayerActionActionsCallbackInterfaces.Add(instance);
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+            }
+
+            private void UnregisterCallbacks(IPlayerActionActions instance)
+            {
+                @Attack.started -= instance.OnAttack;
+                @Attack.performed -= instance.OnAttack;
+                @Attack.canceled -= instance.OnAttack;
+            }
+
+            public void RemoveCallbacks(IPlayerActionActions instance)
+            {
+                if (m_Wrapper.m_PlayerActionActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IPlayerActionActions instance)
+            {
+                foreach (var item in m_Wrapper.m_PlayerActionActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_PlayerActionActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public PlayerActionActions @PlayerAction => new PlayerActionActions(this);
         public interface IPlayerLocomotionMapActions
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
             void OnToggleSprint(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+        }
+        public interface IPlayerActionActions
+        {
+            void OnAttack(InputAction.CallbackContext context);
         }
     }
 }

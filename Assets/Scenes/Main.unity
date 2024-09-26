@@ -1204,6 +1204,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8698176589872578882, guid: 52b81639f4b0ece4799b58c50f85be23, type: 3}
   m_PrefabInstance: {fileID: 48963511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &50868433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1947608125300794163, guid: 8a7a68ecd3d06c04581592c0f5ca30dd, type: 3}
+  m_PrefabInstance: {fileID: 1926460493}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &57194537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30332,6 +30337,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1485853372}
   - {fileID: 817463494}
   - {fileID: 1622826141}
   - {fileID: 1233379916}
@@ -30387,7 +30393,6 @@ Transform:
   - {fileID: 663543799}
   - {fileID: 1515547607}
   - {fileID: 379843470}
-  - {fileID: 1485853372}
   - {fileID: 1730506482}
   - {fileID: 163515411}
   - {fileID: 1168100360}
@@ -33728,6 +33733,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4643510318112879229, guid: 8a7a68ecd3d06c04581592c0f5ca30dd, type: 3}
   m_PrefabInstance: {fileID: 1926460493}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485853379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50868433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a182b5af36f2835468d311d7e8b39dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1486803126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44337,7 +44354,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1947608125300794163, guid: 8a7a68ecd3d06c04581592c0f5ca30dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1485853379}
   m_SourcePrefab: {fileID: 100100000, guid: 8a7a68ecd3d06c04581592c0f5ca30dd, type: 3}
 --- !u!1001 &1931189456
 PrefabInstance:

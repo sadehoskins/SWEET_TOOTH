@@ -18,6 +18,9 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
    public Vector2 LookInput {get; private set; }
    public bool JumpPressed { get; private set; }
 
+
+   public bool AttackPressed { get; private set; }
+
    #endregion
 
    #region Startup
@@ -47,6 +50,7 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
     private void LateUpdate()
     {
         JumpPressed = false;
+        AttackPressed= false;
     }
     #endregion
 
@@ -80,6 +84,18 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
         return;
 
         JumpPressed = true;
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        AttackPressed = true;    
+    }
+
+    internal interface IPlayerActionMapActions
+    {
     }
     #endregion
 }

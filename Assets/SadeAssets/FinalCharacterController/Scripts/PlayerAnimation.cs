@@ -11,6 +11,7 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerLocomotionInput _playerLocomotionInput;
     private PlayerState _playerState;
     private PlayerActionsInput _playerActionsInput;
+    
 
     private static int inputXHash = Animator.StringToHash("inputX");
     private static int inputYHash = Animator.StringToHash("inputY");
@@ -57,7 +58,7 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetBool(isGroundedHash, isGrounded);
         _animator.SetBool(isFallingHash, isFalling);
         _animator.SetBool(isJumpingHash, isJumping);
-        _animator.SetBool(isAttackingHash, _playerActionsInput.AttackPressed);
+        _animator.SetBool(isAttackingHash, _playerLocomotionInput.AttackPressed);
         _animator.SetBool(isPlayingActionHash, isPlayingAction);
 
         _animator.SetFloat(inputXHash, inputTarget.x);

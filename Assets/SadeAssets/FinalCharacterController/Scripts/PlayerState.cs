@@ -13,6 +13,14 @@ public class PlayerState : MonoBehaviour
         CurrentPlayerMovementState = playerMovementState;
    }
 
+   public bool InGroundedState()
+   {
+        return  CurrentPlayerMovementState == PlayerMovementState.Idle ||
+                CurrentPlayerMovementState == PlayerMovementState.Walk ||
+                CurrentPlayerMovementState == PlayerMovementState.Run ||
+                CurrentPlayerMovementState == PlayerMovementState.Sprint;
+   }
+
 }
 
 public enum PlayerMovementState

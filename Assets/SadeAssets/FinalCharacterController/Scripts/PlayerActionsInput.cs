@@ -8,7 +8,7 @@ public class PlayerActionsInput : MonoBehaviour //PlayerLocomotionInput.IPlayerA
 {
    #region Class Variables
 
-   public bool AttackPressed { get; private set; }
+   
    
 
    #endregion
@@ -37,24 +37,13 @@ public class PlayerActionsInput : MonoBehaviour //PlayerLocomotionInput.IPlayerA
 
     #region Late Update Logic
 
-    private void LateUpdate()
-    {
-        AttackPressed = false;
-    }
-
+   
     #endregion
 
 
 
     #region Input Callbacks
     
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        if (!context.performed)
-            return;
-
-        AttackPressed = true;    
-    }
-
+    
     #endregion
 }

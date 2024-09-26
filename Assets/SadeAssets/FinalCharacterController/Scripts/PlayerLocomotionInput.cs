@@ -94,8 +94,6 @@ public class PlayerLocomotionInput : MonoBehaviour, PlayerControls.IPlayerLocomo
         AttackPressed = true;    
     }
 
-    internal interface IPlayerActionMapActions
-    {
-    }
+
     #endregion
 }

@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "4622c187-299a-4341-ae18-83d94ca6645b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -196,27 +205,10 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "PlayerAction",
-            "id": "244f6631-c8b7-4545-9fa1-3576ba79fe32",
-            "actions": [
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "5f4b1b1f-7506-417c-803e-f8bd97dd7e19",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "3c82b3c6-b3c6-40bb-a281-58319bc15b8d",
+                    "id": "fdbff2e0-92e8-49b4-8310-6f7bcd08da64",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",

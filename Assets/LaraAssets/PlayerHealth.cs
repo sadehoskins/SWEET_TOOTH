@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
             Die();
         }
@@ -40,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("You died!");
         //Play death animation
-        //Activate death screen
+        SceneManager.LoadScene(2);
+        Time.timeScale = 1;
     }
 }

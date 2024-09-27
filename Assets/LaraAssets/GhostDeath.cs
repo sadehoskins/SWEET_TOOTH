@@ -22,7 +22,7 @@ public class GhostDeath : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("Collided with Bullet!");
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

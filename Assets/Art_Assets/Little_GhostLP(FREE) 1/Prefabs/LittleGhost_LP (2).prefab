@@ -722,6 +722,7 @@ GameObject:
   - component: {fileID: 8406845055882037675}
   - component: {fileID: 3061971534246831984}
   - component: {fileID: 8336358873666606887}
+  - component: {fileID: 9079228071759770995}
   m_Layer: 0
   m_Name: LittleGhost_LP (2)
   m_TagString: Untagged
@@ -812,7 +813,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.145118
   m_Height: 0.73960495
@@ -847,6 +848,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6b9d4a9f8c1284fbdb2c28ed365713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &9079228071759770995
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406845055882037674}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4477234, y: 0.8136907, z: 0.44763184}
+  m_Center: {x: 0.017990112, y: 0.34280726, z: 0.028289795}
 --- !u!1 &8406845055918955520
 GameObject:
   m_ObjectHideFlags: 0

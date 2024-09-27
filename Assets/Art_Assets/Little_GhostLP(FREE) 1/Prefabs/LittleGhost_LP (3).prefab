@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 6007180743642840527}
   - component: {fileID: 6007180743642840512}
   - component: {fileID: -3466013885351644055}
+  - component: {fileID: -7910264689862431132}
   m_Layer: 0
   m_Name: LittleGhost_LP (3)
   m_TagString: Untagged
@@ -191,6 +192,18 @@ MonoBehaviour:
   respawnTime: 3
   killDistance: 1
   damage: 10
+--- !u!114 &-7910264689862431132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6007180743642840513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6b9d4a9f8c1284fbdb2c28ed365713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6007180744003529716
 GameObject:
   m_ObjectHideFlags: 0

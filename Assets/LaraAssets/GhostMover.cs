@@ -17,7 +17,7 @@ public class GhostMover : MonoBehaviour
 
 
     private Renderer[] renderers;
-    private Collider ghostCollider;
+    public Collider ghostCollider;
 
     public void Initialize(Transform playerTransform, float moveSpeed, LayerMask plLayer, int ghostLayerNumber)
     {
@@ -100,6 +100,7 @@ public class GhostMover : MonoBehaviour
         {
             CheckPlayerDistance();
         }
+        
     }
 
     public void OnRangedAttackHit()

@@ -7,6 +7,10 @@ public class Bullet : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);   
+        Destroy(gameObject);
+        if (gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Ghost was hit!");
+        }
     }
 }

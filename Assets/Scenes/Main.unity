@@ -41249,7 +41249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1660918478}
   attackPoint: {fileID: 1056670617}
-  cake: {fileID: 5883516395837221390, guid: 32db88bbc38412d4481b5fefa091be19, type: 3}
+  cake: {fileID: 6774946290660470435, guid: eae73e2e59d32664594dbcbb0c27a57a, type: 3}
   totalThrows: 100
   throwCoolDown: 0.1
   throwKey: 9
